@@ -4,7 +4,7 @@ const checkGmailButton = document.querySelector("#gmail_button");
 const resultGmailCheck = document.querySelector("#gmail_result");
 
 checkGmailButton.onclick = () => {
-    const regEx = /^(?!.*\s)[a-zA-Z]{1,}\w{2,}@gmail\.com$/;
+    const regEx = /^[a-zA-Z]{1,}\w{2,}@gmail\.com$/;
     
     if (regEx.test(userGmailInput.value)) {
         resultGmailCheck.innerHTML = "OK";
