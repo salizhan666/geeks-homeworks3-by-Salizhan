@@ -19,11 +19,61 @@ checkGmailButton.onclick = () => {
 const elementChildBlock = document.querySelector(".child_block");
 
 let leftPx = 0;
-const moveBlock = () => {
-    if (leftPx >= 449) return;
+let topPx = 0;
 
-    leftPx++;
-    elementChildBlock.style.left = `${leftPx}px`;
-    requestAnimationFrame(moveBlock);  
+const moveBlock = () => {
+    if (topPx === 0 && leftPx < 449) {
+        leftPx++;
+        elementChildBlock.style.left = `${leftPx}px`;
+        requestAnimationFrame(moveBlock);  
+    } else if (leftPx === 449 && topPx < 449) {
+        topPx++;
+        elementChildBlock.style.top = `${topPx}px`;
+        requestAnimationFrame(moveBlock);  
+    } else if (topPx === 449 && leftPx > 0) {
+        leftPx--;
+        elementChildBlock.style.left = `${leftPx}px`;
+        requestAnimationFrame(moveBlock);
+    } else if (leftPx === 0 && topPx > 0) {
+        topPx--;
+        elementChildBlock.style.top = `${topPx}px`;
+        requestAnimationFrame(moveBlock);
+    }
 }
 moveBlock();
+
+//STOPWATCH 
+const stopwatchValue = document.querySelector("#seconds");
+const startButton = document.querySelector("#start");
+const stopButton = document.querySelector("#stop");
+const resetButton = document.querySelector("#reset");
+
+let second = 0;
+let stopwatch = null;
+
+const startStopwatch = () => {
+    second++;
+    stopwatchValue.innerHTML = second;
+}
+
+startButton.onclick = () => {
+    if (!stopwatch) {
+        stopwatch = setInterval(startStopwatch, 1000);
+    }
+}
+
+stopButton.onclick = () => {
+    if (stopwatch) {
+        clearInterval(stopwatch);
+        stopwatch = null;
+    }
+}
+
+resetButton.onclick = () => {
+    if (stopwatch) {
+        stopwatch = null;
+        clearInterval(stopwatch);
+    }
+    second = 0;
+    stopwatchValue.innerHTML = 0;
+}
