@@ -57,6 +57,8 @@ const autoSlider = (i = 0) => {
         if (i > slides.length - 1) {
             i = 0
         }
+        console.log(i);
+        
         hideSlide()
         showSlide(i)
     }, 10000)

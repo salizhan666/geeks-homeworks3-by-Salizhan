@@ -73,7 +73,7 @@
     place-content: center;
 }
 
-.tab_content_item_active {
+.active {
     background: var(--orange);
     color: black;
     font-weight: 600;

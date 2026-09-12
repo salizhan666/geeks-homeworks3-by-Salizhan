@@ -10,13 +10,15 @@
 }
 
 body {
-    font-family: "Britannic Bold", sans-serif;
+    font-family: "Noto Serif", serif;;
+    letter-spacing: 4px;
     background: #c2d0d0;
 }
 
 .btn {
     width: 250px;
     height: 50px;
+    font-family: "Lato" sans-serif;
     font-size: 20px;
     cursor: pointer;
     border: 1px solid var(--orange);
@@ -35,6 +37,7 @@ body {
 }
 
 a {
+    font-family: "Lato", sans-serif;
     text-decoration: none;
 }
 
@@ -74,6 +77,11 @@ h4 {
     color: white;
     text-transform: uppercase;
     font-weight: 600;
+}
+
+p {
+    font-family: "Lato", sans-serif;
+    letter-spacing: 0;
 }
 
 strong {
@@ -120,6 +128,6 @@ input {
 }
 
 :root {
-    --orange: orange;
+    --orange: #D3BD8E;
     --black: black;
 }
