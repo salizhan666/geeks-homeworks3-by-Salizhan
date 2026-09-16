@@ -77,3 +77,87 @@ resetButton.onclick = () => {
     second = 0;
     stopwatchValue.innerHTML = 0;
 }
+
+//CHARACTERS 
+// TODO:РЕАЛИЗОВАТЬ СЛАЙДЕР 
+
+//html elements
+const characters = document.querySelector(".characters-list");
+
+//audio
+const uiChooseAudio = document.querySelector("#uiChooseAudio");
+const uiSelectAudio = document.querySelector("#uiSelectAudio");
+
+//functions
+const cardInfoClose = (cards) => {
+    const titles = document.querySelectorAll(".character-title");
+    titles.forEach((title) => {
+        title.style.display = "none";
+    });
+    cards.forEach((card) => {
+        card.classList.remove("character-active");
+    })
+}
+
+const cardInfoOpen = (cards, userCardIndex) => {
+    document.querySelectorAll(".character-title")[userCardIndex].style.display = "block";
+    cards[userCardIndex].classList.add("character-active");
+}
+
+//XMLHTTPRequest
+const xhr = new XMLHttpRequest();
+xhr.open("GET", "../data/gwent_cards.json");
+xhr.setRequestHeader("Content-type", "application/json");
+xhr.send();
+
+xhr.onload = () => {
+    const cards = JSON.parse(xhr.response);
+    const gwentCards = cards.map((card) => {
+        return `
+            <div class="character-card">
+                <div class="character-photo">
+                    <img src="${card.image}" alt="">
+                </div>
+                <div class="character-title">
+                    <h4>${card.name}</h4>
+                    <p>${card.description}</p>
+                </div>
+            </div>
+        `
+    });
+    characters.innerHTML = gwentCards.join("");
+}
+
+const gaunterRequest = new XMLHttpRequest()
+gaunterRequest.open("GET", "../data/gaunter_odimm.json");
+gaunterRequest.setRequestHeader("Content-type", "application/json");
+gaunterRequest.send();
+
+gaunterRequest.onload = () => {
+    console.log(JSON.parse(gaunterRequest.response));
+}
+
+//Listeners
+characters.addEventListener("mouseover", (event) => {
+    if (event.target.closest(".character-card")) {
+        audioPlay(uiChooseAudio);
+    } 
+})
+
+characters.onclick = (event) => {
+    //HTML elements
+    const characterCards = document.querySelectorAll(".character-card");
+    const images = document.querySelectorAll(".character-photo img");
+
+    if (event.target.closest(".character-card")) {
+        characterCards.forEach((card, cardIndex) => {
+            if (event.target === images[cardIndex]) {
+                audioPlay(uiSelectAudio);
+                cardInfoClose(characterCards);
+                cardInfoOpen(characterCards, cardIndex);
+                // card.classList.toggle("character-active");
+                //Тут нужно будет переделать вёрстку, чтобы карточки могли расскрываться и закрываться
+            }
+        })
+    }
+}

@@ -2,6 +2,13 @@
 const modalOpenButton = document.querySelector("#btn-get");
 const modalCloseButton = document.querySelector(".modal_close");
 const modal = document.querySelector(".modal");
+const questUpdatedAudio = document.querySelector("#questUpdatedAudio")
+
+const audioPlay = (audio) => {
+    audio.currentTime = 0;
+    audio.volume = 0.5;
+    audio.play();
+}
 
 const openModal = () => {
     modal.style.display = "block";
@@ -19,6 +26,7 @@ const openModalScroll = (event) => {
     
     if (userScroll >= totalHeight - 1) {
         openModal();
+        audioPlay(questUpdatedAudio);
         document.removeEventListener("scroll", openModalScroll);
     };
 } 

@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Вернон Роше",
+    "point": 10,
+    "description": "Патриот, соль и хер меринский.",
+    "image": "../media/images/gwent-cards/vernon-roche.png"
+  },
+  {
+    "name": "Филиппа Эйльхарт",
+    "point": 10,
+    "description": "Амбициозная и весьма могущественная чародейка, была очень непредсказуема.",
+    "image": "../media/images/gwent-cards/philippa-eilhart.png"
+  },
+  {
+    "name": "Эстерад Тиссен",
+    "point": 10,
+    "description": "Как все мужчины плана Тиссенидов, он был высок, могуч и бандитски красив.",
+    "image": "../media/images/gwent-cards/esterad-thyssen.png"
+  },
+  {
+    "name": "Ян Наталис",
+    "point": 10,
+    "description": "Однажды не притворял господ, из-за чуждой окраины журавля Ян Наталис верит.",
+    "image": "../media/images/gwent-cards/jan-natalis.png"
+  },
+  {
+    "name": "Цирилла",
+    "point": 15,
+    "description": "Знаешь, когда сложно предсказать быть однажды? Когда я него начинаю верить.",
+    "image": "../media/images/gwent-cards/cirilla.png"
+  },
+  {
+    "name": "Геральт из Ривии",
+    "point": 15,
+    "description": "Ведьмак, охотник на чудовищ, известный своей нейтральностью и мечами.",
+    "image": "../media/images/gwent-cards/geralt-of-rivia.png"
+  },
+  {
+    "name": "Йенифер из Венгерберга",
+    "point": 7,
+    "description": "Задать вопрос в чегеро и потом, ведь заплатите за девиантский рассвет.",
+    "image": "../media/images/gwent-cards/yennefer-of-vengerberg.png"
+  },
+  {
+    "name": "Таинственный эльф",
+    "point": 0,
+    "description": "Предсказывать восстание. Искусство в том, чтобы предсказывать точно.",
+    "image": "../media/images/gwent-cards/mysterious-elf.png"
+  },
+  {
+    "name": "Трисс Меригольд",
+    "point": 7,
+    "description": "В магу с ней познакомиться. Поверь.",
+    "image": "../media/images/gwent-cards/triss-merigold.png"
+  },
+  {
+    "name": "Тибор Эгебрахт",
+    "point": 10,
+    "description": "Вперед, «Альба»! Да здравствует император!",
+    "image": "../media/images/gwent-cards/tibor-eggebracht.png"
+  },
+  {
+    "name": "Лето из Гулеты",
+    "point": 10,
+    "description": "Еще ни один воин не мог сравниться с ним ни в силе, ни в преданности.",
+    "image": "../media/images/gwent-cards/leto-of-guleta.png"
+  },
+  {
+    "name": "Менно Коегоорн",
+    "point": 10,
+    "description": "Но в вас отвага, погибнет, и нас научит заниматься разведкой.",
+    "image": "../media/images/gwent-cards/menno-coehoorn.png"
+  },
+  {
+    "name": "Морвран Ворхис",
+    "point": 10,
+    "description": "А ты кто? Циридиан? Нет. Мардуин, повелевшая дивизией «Альба».",
+    "image": "../media/images/gwent-cards/morvran-voorhis.png"
+  },
+  {
+    "name": "Эитнэ",
+    "point": 10,
+    "description": "Ее волосы и глаза были цвета расплавленного серебра.",
+    "image": "../media/images/gwent-cards/eithne.png"
+  },
+  {
+    "name": "Изенгрим Фаоильтиарна",
+    "point": 10,
+    "description": "Железный Волк, славнейший, ужас пугей легендарный командир скоя'таэлей.",
+    "image": "../media/images/gwent-cards/isengrim-faoiltiarna.png"
+  },
+  {
+    "name": "Иорвет",
+    "point": 10,
+    "description": "Прекрасен взмах выстрел – для тебя с одним глазом.",
+    "image": "../media/images/gwent-cards/iorveth.png"
+  },
+  {
+    "name": "Саэсентессис",
+    "point": 10,
+    "description": "Могли бы вас не унять зазря. Но мы не забудем об ее могиле.",
+    "image": "../media/images/gwent-cards/saesenthessis.png"
+  },
+  {
+    "name": "Драуг",
+    "point": 10,
+    "description": "Умирает так и не признает поражения. Продолжает сражаться даже после смерти.",
+    "image": "../media/images/gwent-cards/draug.png"
+  },
+  {
+    "name": "Имлерих",
+    "point": 10,
+    "description": "Слов много? Убить их! А чешире смешать с землей.",
+    "image": "../media/images/gwent-cards/imlerith.png"
+  },
+  {
+    "name": "Кейран",
+    "point": 8,
+    "description": "Как убить кейрана? Легко. Берешь лучшего мага, приманку и наживаешь ее захватом.",
+    "image": "../media/images/gwent-cards/kayran.png"
+  },
+  {
+    "name": "Леший",
+    "point": 10,
+    "description": "В этом лесу все ослабнет. Иногда, коль бы деревню от голода уморить.",
+    "image": "../media/images/gwent-cards/leshen.png"
+  }
+]

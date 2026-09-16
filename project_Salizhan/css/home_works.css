@@ -187,36 +187,75 @@
 /*--------CHARACTERS---------*/
 
 .characters {
-    background: var(--black);
+    /* background: var(--black); */
+    background-image: url("../media/images/background/gwent-desk.webp");
+    background-position: center;
+    background-size: contain;
+    background-repeat: repeat;
 }
 
 .characters-list {
     padding: 100px 0;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
+    flex-wrap: wrap; 
+    gap: 30px;
 }
 
 .character-card {
-    border: 2px solid var(--orange);
-    padding: 10px;
-    width: 250px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.character-card.character-active {
+    flex-direction: row;
+}
+
+.character-title {
+    max-width: 200px;
+    text-align: left;
+    display: none;
+    animation: fromLeft 0.3s cubic-bezier(0, 1.18, 0.58, 1) forwards;
+}
+
+.character-title h4 {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--orange);
+}
+
+.character-title p {
+    margin-top: 20px;
+    color: white;
 }
 
 .character-photo {
-    width: 100%;
-    height: 250px;
-    border: 2px solid var(--orange);
+    width: 200px;
     margin: 0 auto;
+    border-radius: 5%;
+    box-shadow: 4px 4px 10px #000000a7;
 }
 
 .character-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+    scale: 1.05;
+}
+
+@keyframes fromLeft {
+    from {
+        transform: translateX(-10px);
+    }
+    to {
+        transform: translateX(0);
+    }
 }

@@ -29,9 +29,9 @@
 
 /* TAB SLIDER */
 
-.tab_slider {
-    background: black;
+/* .tab_slider {
     padding: 100px 0;
+    background: black;
 }
 
 .tab_content_block {
@@ -85,6 +85,120 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 50px;
+} */
+
+/*------INFO------*/
+
+.info {
+    height: 100vh;
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    transition: background-image 0.5s ease;
+}
+
+.info__content {
+    max-width: 60%;
+}
+
+.info__button::before {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    background-image: url("/media/images/icons/slider-notactive.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.info__button.info__active::before {
+    background-image: url("/media/images/icons/slider-active.svg");
+    animation: opacityScale 0.3s ease forwards;
+}
+
+.info__title {
+    color: white;
+    font-size: 28px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: color 0.3s ease;
+}
+
+.info__title:hover {
+    color: #f1d392;
+}
+
+.info__title.info__active {
+    color: #f1d392;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    animation: toTop 0.8s ease forwards;
+}
+
+.info__button {
+    cursor: pointer;
+}
+
+.info__descption {
+    margin-top: 10px;
+    margin-left: 60px;
+    color: white;
+    font-size: 20px;
+    font-family: "Noto Serif", serif;
+    line-height: 24px;
+    max-width: 500px;
+    display: block;
+    opacity: 0;
+    animation: fromTop 0.8s cubic-bezier(0, 1.93, 0.34, 1.1) forwards;
+}
+
+.info__content__blocks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 40px;
+}
+
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toTop {
+    from {
+        transform: translateY(10px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes opacityScale {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(40px);
+    }
 }
 
 /*------CARD SWITCHER------*/
