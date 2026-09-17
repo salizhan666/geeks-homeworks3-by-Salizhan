@@ -79,10 +79,11 @@ resetButton.onclick = () => {
 }
 
 //CHARACTERS 
-// TODO:РЕАЛИЗОВАТЬ СЛАЙДЕР 
+// TODO:Реализовать плавный переход или бесконечный слайдер 
 
 //html elements
 const characters = document.querySelector(".characters-list");
+const characterCloseButton = document.querySelector(".characters-close-button");
 
 //audio
 const uiChooseAudio = document.querySelector("#uiChooseAudio");
@@ -92,7 +93,7 @@ const uiSelectAudio = document.querySelector("#uiSelectAudio");
 const cardInfoClose = (cards) => {
     const titles = document.querySelectorAll(".character-title");
     titles.forEach((title) => {
-        title.style.display = "none";
+        title.classList.remove("character-active")
     });
     cards.forEach((card) => {
         card.classList.remove("character-active");
@@ -100,7 +101,7 @@ const cardInfoClose = (cards) => {
 }
 
 const cardInfoOpen = (cards, userCardIndex) => {
-    document.querySelectorAll(".character-title")[userCardIndex].style.display = "block";
+    document.querySelectorAll(".character-title")[userCardIndex].classList.toggle("character-active");
     cards[userCardIndex].classList.add("character-active");
 }
 
@@ -148,16 +149,19 @@ characters.onclick = (event) => {
     //HTML elements
     const characterCards = document.querySelectorAll(".character-card");
     const images = document.querySelectorAll(".character-photo img");
-
+    
     if (event.target.closest(".character-card")) {
         characterCards.forEach((card, cardIndex) => {
             if (event.target === images[cardIndex]) {
                 audioPlay(uiSelectAudio);
-                cardInfoClose(characterCards);
                 cardInfoOpen(characterCards, cardIndex);
-                // card.classList.toggle("character-active");
-                //Тут нужно будет переделать вёрстку, чтобы карточки могли расскрываться и закрываться
             }
         })
     }
+}
+
+characterCloseButton.onclick = () => {
+    const characterCards = document.querySelectorAll(".character-card");
+    audioPlay(uiSelectAudio);
+    cardInfoClose(characterCards);
 }
