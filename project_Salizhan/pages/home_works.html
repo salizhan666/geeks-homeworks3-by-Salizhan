@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home Works</title>
+    <title>Гвинт</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/core.css">
     <link rel="stylesheet" href="../css/home_works.css">
@@ -20,13 +20,10 @@
                 </a>
                 <ul class="menu">
                     <li class="menu_link">
-                        <a href="../pages/home_works.html">Home Works</a>
+                        <a href="../pages/home_works.html">Гвинт</a>
                     </li>
                     <li class="menu_link">
-                        <a href="../pages/lessons.html">Lessons</a>
-                    </li>
-                    <li class="menu_link">
-                        <a href="https://t.me/NurDinBuy16" target="_blank">Send message</a>
+                        <a href="../pages/lessons.html">Баллады Прошлого</a>
                     </li>
                 </ul>
                 <button class="btn" id="btn-get">Click me!</button>
@@ -84,30 +81,88 @@
                     гарантируют железные очки силы, которые противник никак не сможет уменьшить, что делает их главным ключом к победе в
                     любом раунде.</p>
                 </div>
-                <button class="characters-close-button btn">Закрыть карты</button>
+                <div class="character-buttons">
+                    <button class="characters-close-button btn">Закрыть карты</button>
+                    <div class="character-slider">
+                        <button class="character-prev btn character-slider-button"></button>
+                        <button class="character-next btn character-slider-button"></button>
+                    </div>
+                </div>
             </div>
             <div class="characters-list">
                 <!--<div class="character-card character-active">
-                        <div class="character-photo">
-                            <img src="../media/images/gwent-cards/cirilla.png" alt="">
-                        </div>
-                        <div class="character-title">
-                            <h4>Вернон Роше</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium molestias odit rem magni dolor eligendi ut, amet
-                                nisi dolorem illo. Culpa tempora, consequuntur saepe asperiores voluptate repudiandae dolorum fugit recusandae?</p>
-                        </div>
-                    </div> -->
+                                <div class="character-photo">
+                                    <img src="../media/images/gwent-cards/cirilla.png" alt="">
+                                </div>
+                                <div class="character-title">
+                                    <h4>Вернон Роше</h4>
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium molestias odit rem magni dolor eligendi ut, amet
+                                        nisi dolorem illo. Culpa tempora, consequuntur saepe asperiores voluptate repudiandae dolorum fugit recusandae?</p>
+                                </div>
+                        </div> -->
             </div>
         </div>
     </div>
 
     <div class="footer">
         <div class="container">
-            <a href="https://www.instagram.com/nurdinbuy/" target="_blank">
-                <div class="inner_footer">
-                    <h2>Made by NurDinBuy</h2>
+            <div class="footer_links">
+                <div class="footer_links_project">
+                    <div class="footer_main_logo"></div>
+                    <div class="footer_other_projects">
+                        <ul>
+                            <li><a class="footer_icon cyberpunk-logo" href="https://www.cyberpunk.net/nl/ru/">
+                                    cyberpunk.net
+                                </a></li>
+                            <li><a class="footer_icon gwent-logo" href="https://www.playgwent.com/ru/">
+                                    playgwent.com
+                                </a></li>
+                            <li><a class="footer_icon cdprojektredgear-logo" href="https://gear.cdprojektred.com/">
+                                    gear.cdprojektred.com
+                                </a></li>
+                        </ul>
+                    </div>
                 </div>
-            </a>
+                <div class="footer_links_social">
+                    <ul>
+                        <li><a class="x_icon" href="https://x.com/thewitcher"></a></li>
+                        <li><a class="youtube_icon" href="https://www.youtube.com/thewitcher"></a></li>
+                        <li><a class="discord_icon" href="https://discord.com/invite/thewitcher"></a></li>
+                        <li><a class="instagram_icon" href="https://www.instagram.com/thewitcher"></a></li>
+                        <li><a class="telegram_icon" href="https://t.me/cdpr_official"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_info">
+                <ul class="footer_info_links">
+                    <li><a href="https://regulations.cdprojektred.com/en/privacy_policy">
+                            Условия использования и политика конфиденциальности
+                        </a></li>
+                    <li><a href="#">
+                            Оповещение о файлах cookie
+                        </a></li>
+                    <li><a href="https://support.cdprojektred.com/en/">
+                            Поддержка
+                        </a></li>
+                    <li><a href="https://regulations.cdprojektred.com/en/user_agreement">
+                            Пользовательское соглашение
+                        </a></li>
+                    <li><a href="https://www.cdprojektred.com/ru/fan-content">
+                            Руководство по созданию фан-контента
+                        </a></li>
+                    <li><a href="https://press.cdprojektred.com/ru">
+                            Пресс-центр
+                        </a></li>
+                    <li><a href="https://www.cdprojektred.com/en/jobs?studio=poland&project=the-witcher-4#animation">
+                            Карьера
+                        </a></li>
+                </ul>
+                <p>© CD PROJEKT RED S.A., 2026. Все права сохранены. CD PROJEKT RED, логотип CD PROJEKT RED, «Ведьмак» и
+                    логотип «Ведьмак»
+                    являются товарными знаками и/или зарегистрированными товарными знаками CD PROJEKT RED S.A. в США и
+                    других странах.
+                    Действие игры «Ведьмак» происходит во вселенной, созданной Анджеем Сапковским в серии книг.</p>
+            </div>
         </div>
     </div>
 </div>
@@ -116,15 +171,24 @@
     <div class="modal_dialog">
         <div class="modal_content">
             <form action="#">
-                <div class="modal_close">&times;</div>
-                <div class="modal_title">Мы свяжемся с вами как можно быстрее!</div>
+                <div class="modal_close">&#10006;</div>
+                <div class="modal_title">
+                    <h4>Будьте в курсе всего!</h4>
+                    <p>Следите за всеми обновлениями, чтобы не пропустить ничего важного. Подпишитесь на ведьмачью
+                        рассылку и получайте свежие
+                        новости о мире «Ведьмака»!</p>
+                </div>
                 <label>
-                    <input required placeholder="Ваше имя" name="name" type="text" class="modal_input">
+                    <input required placeholder="Ваша почта" name="gmail" type="text" class="modal_input">
                 </label>
-                <label>
-                    <input required placeholder="Ваш номер телефона" name="phone" class="modal_input">
-                </label>
-                <button class="btn btn_dark btn_min">Перезвонить мне</button>
+                <div class="modal_cheackbox">
+                    <div class="modal_checkbox_button"></div>
+                    <p>Я хочу получать новости, специальные предложения и другую информацию от CD PROJEKT RED и
+                        подтверждаю, что мне уже
+                        исполнилось 16 лет.</p>
+                </div>
+                <span class="modal_checkbox_error"></span>
+                <button class="modal_subscribe btn btn_dark btn_min" type="button">Подписаться</button>
             </form>
         </div>
     </div>

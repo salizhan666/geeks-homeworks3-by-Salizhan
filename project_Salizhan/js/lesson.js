@@ -1,70 +1,21 @@
 let index = 0;
 
 // PHONE CHECKER
-const userPhoneInput = document.querySelector("#phone_input");
-const checkPhoneButton = document.querySelector("#phone_button");
-const resultPhoneCheck = document.querySelector("#phone_result");
+// const userPhoneInput = document.querySelector("#phone_input");
+// const checkPhoneButton = document.querySelector("#phone_button");
+// const resultPhoneCheck = document.querySelector("#phone_result");
 
-checkPhoneButton.onclick = () => {
-    const regExp = /^\+996 [2579]\d{2} \d{2}-\d{2}-\d{2}$/;
+// checkPhoneButton.onclick = () => {
+//     const regExp = /^\+996 [2579]\d{2} \d{2}-\d{2}-\d{2}$/;
 
-    if (regExp.test(userPhoneInput.value)) {
-        resultPhoneCheck.innerHTML = "OK";
-        resultPhoneCheck.style.color = "green";
-    } else {
-        resultPhoneCheck.innerHTML = "ERROR";
-        resultPhoneCheck.style.color = "red";
-    }
-}
-
-// //TAB SLIDER 
-// const tabContentBlocks = document.querySelectorAll(".tab_content_block");
-// const tabButtons = document.querySelectorAll(".tab_content_item");
-// const tabButtonsParent = document.querySelector(".tab_content_items");
-// let autoTabsInteval = null;
-
-// const hideTabContent = () => {
-//     tabContentBlocks.forEach(block => {
-//         block.style.display = "none";
-//     })
-//     tabButtons.forEach(button => {
-//         button.classList.remove("active");
-//     })
-// }
-
-// const showTabContent = (index = 0) => {
-//     tabContentBlocks[index].style.display = "block";
-//     tabButtons[index].classList.add("active");
-// }
-
-// const autoShowContent = (i) => { 
-//     autoTabsInteval = setInterval(() => {
-//         i++;
-//         if (i > tabButtons.length - 1) {
-//             i = 0;
-//         }
-//         hideTabContent();
-//         showTabContent(i);
-//     }, 3000);
-// }
-
-// hideTabContent();
-// showTabContent();
-
-// tabButtonsParent.onclick = event => {
-//     if (event.target.classList.contains("tab_content_item")) {
-//         clearInterval(autoTabsInteval);
-//         tabButtons.forEach((tab, tabIndex) => {
-//             if (event.target === tab) {
-//                 hideTabContent();
-//                 showTabContent(tabIndex);
-//             }
-//         });
+//     if (regExp.test(userPhoneInput.value)) {
+//         resultPhoneCheck.innerHTML = "OK";
+//         resultPhoneCheck.style.color = "green";
+//     } else {
+//         resultPhoneCheck.innerHTML = "ERROR";
+//         resultPhoneCheck.style.color = "red";
 //     }
 // }
-
-// autoShowContent(index);
-
 
 //INFO
 const infoButtons = document.querySelectorAll(".info__content .info__button");
@@ -115,7 +66,6 @@ infoButtonsParent.onclick = (event) => {
 }
 
 // CONVERTER 
-
 const somInput = document.querySelector("#som");
 const usdInput = document.querySelector("#usd");
 const eurInput = document.querySelector("#eur");
@@ -152,3 +102,53 @@ const getCurrency = (element, targetElement1, targetElement2) => {
 getCurrency(usdInput, somInput, eurInput);
 getCurrency(somInput, usdInput, eurInput);
 getCurrency(eurInput, somInput, usdInput);
+
+//CADR SWITCHER
+const btnPrev = document.querySelector("#btn-prev");
+const btnNext = document.querySelector("#btn-next");
+const card = document.querySelector(".card");
+let cardId = 1;
+
+const getTodoData = (id = 0) => {
+    fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+            const { id, title, completed } = data;
+            const status = completed ? '&#9989;' : '&#10062;'
+
+            card.innerHTML = `
+                <p>${title}</p>
+                <span>${status}</span>
+                <span>${id}</span>
+            `
+        });
+}
+
+const getPostData = () => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+        })
+}
+
+getTodoData(cardId);
+getPostData();
+
+btnNext.onclick = () => {
+    if (cardId >= 200) {
+        cardId = 1;
+    } else {
+        cardId++;
+    }
+    getTodoData(cardId); 
+}
+
+btnPrev.onclick = () => {
+    if (cardId <= 1) {
+        cardId = 200;
+    } else {
+        cardId--;
+    }
+    getTodoData(cardId);
+}

@@ -18,7 +18,7 @@
     position: absolute;
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(20px);
-    mask-image: linear-gradient(to top, transparent 0%, black 100%);
+    mask-image: linear-gradient(to top, transparent 0%, black 50%);
 }
 
 .inner_header {
@@ -42,17 +42,20 @@
 
 .menu {
     display: flex;
-    justify-content: space-around;
+    justify-content: end;
+    gap: 50px;
     width: 600px;
 }
 
 .menu_link a {
-    color: var(--orange);
+    color: var(--gray);
     text-transform: uppercase;
+    opacity: 0.7;
+    transition: all 0.3s ease;
 }
 
 .menu_link a:hover {
-    text-decoration: underline;
+    opacity: 1;
 }
 
 /* MAIN BLOCK */
@@ -87,26 +90,137 @@
 }
 
 /* FOOTER */
-
 .footer {
-    background: #2c2d2f;
-    width: 100%;
+    padding: 50px 0;
+    background: var(--black);
 }
 
-.inner_footer {
+.footer_links {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.footer_links_project {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.footer_main_logo {
+    display: block;
     height: 100px;
+    width: 250px;
+    background-image: url("../media/images/logo/cdpr-logo.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.footer h2 {
-    text-transform: uppercase;
-    color: var(--orange);
-    font-weight: 600;
+.footer_other_projects ul {
+    display: flex;
+    gap: 20px;
 }
 
+.footer_other_projects ul li a {
+    font-size: 10px;
+    letter-spacing: 10%;
+}
 
+.footer_icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer_icon::before {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 40px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.cyberpunk-logo::before {
+    background-image: url("../media/images/logo/cyberpunk-logo.webp");
+}
+
+.gwent-logo::before {
+    background-image: url("../media/images/logo/gwent-logo.webp");
+}
+
+.cdprojektredgear-logo::before {
+    background-image: url("../media/images/logo/cdpr-gear-logo.webp");
+}
+
+.footer_links_social ul li a::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat; 
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.footer_links_social ul {
+    display: flex;
+    gap: 40px;
+}
+
+.footer_links_social ul li a:hover::after {
+    opacity: 1;
+}
+
+.x_icon::after {
+    background-image: url("../media/images/icons/social-medias/x-logo.svg");
+}
+
+.youtube_icon::after {
+    background-image: url("../media/images/icons/social-medias/youtube-logo.svg");
+}
+
+.discord_icon::after {
+    background-image: url("../media/images/icons/social-medias/discord-logo.svg");
+}
+
+.instagram_icon::after {
+    background-image: url("../media/images/icons/social-medias/instagram-logo.svg");
+}
+
+.telegram_icon::after {
+    background-image: url("../media/images/icons/social-medias/telegram-logo.svg");
+}
+
+.footer_info{
+    margin-top: 30px;
+    color: var(--gray);
+    font-size: 10px;
+    letter-spacing: 10%;
+}
+
+.footer_info_links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_info_links li a{
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.footer_info p{
+    margin-top: 30px;
+    max-width: 605px;
+}
+
+.footer_info_links li a:hover {
+    opacity: 1;
+}
 /* SLIDER BLOCK */
 
 .slider_block {
@@ -194,14 +308,14 @@
 
 .modal_dialog {
     max-width: 500px;
-    margin: 200px auto;
+    margin: 100px auto;
 }
 
 .modal_content {
     position: relative;
     width: 100%;
     padding: 40px;
-    background-color: black;
+    background: rgba(0, 0, 0, 0.5);
     border: 2px solid var(--orange);
     border-radius: 4px;
     max-height: 80vh;
@@ -228,19 +342,70 @@
 }
 
 .modal_title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    font-size: 22px;
-    text-transform: uppercase;
-    color: white;
+}
+
+.modal_title h4 {
+    text-align: center;
+    color: var(--gray);
+}
+
+.modal_title p {
+    padding: 10px 0;
+    font-family: "Noto Serif", serif;
+    color: var(--gray);
+    font-size: 16px;
+    max-width: 350px;
 }
 
 .modal_content label, .btn_min {
-    width: 100% !important;
+    font-family: "Noto Serif", serif;
+    /* width: 100% !important; */
     margin-top: 10px;
 }
 
 .modal_content input {
-    width: 100%;
+    font-family: "Noto Serif", serif;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.modal_cheackbox {
+    padding: 0 40px;
+    display: flex;
+    margin: 10px;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.modal_cheackbox p {
+    font-family: "Noto Serif", serif;
+    font-size: 12px;
+    
+}
+
+.modal_checkbox_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    width: 50px;
+    height: 20px;
+    border: 1px solid var(--orange);
+}
+
+.modal_checkbox_error {
+    text-align: left;
+    color: red;
+    font-size: 12px;
+    font-family: "Lato", sans-serif;
+    letter-spacing: normal;
 }
 
 /*-------BOTTLE-------*/

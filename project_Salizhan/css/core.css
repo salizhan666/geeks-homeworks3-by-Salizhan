@@ -12,20 +12,19 @@
 body {
     font-family: "Noto Serif", serif;;
     letter-spacing: 2px;
-    background: #c2d0d0;
+    background: var(--black);
 }
 
 .btn {
+    font-family: "Noto Serif", serif;;
     padding: 5px 10px;
-    width: 200px;
-    height: 50px;
     font-size: 20px;
     cursor: pointer;
     outline: 1px solid var(--orange);
     outline-offset: 2px;
     color: black;
     background: rgba(211, 189, 142, 0.6);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0, -0.01, 0.01, 0.98);
 }
 
 .btn:hover {
@@ -34,13 +33,14 @@ body {
 
 .btn:active {
     background: rgba(211, 189, 142, 0.9);
-    outline: 1px solid var(--orange);
     outline-offset: 4px;
 }
 
 a {
     font-family: "Lato", sans-serif;
     text-decoration: none;
+    color: var(--gray);
+
 }
 
 li {
@@ -96,6 +96,8 @@ label {
 }
 
 input {
+    outline: none;
+    appearance: none;
     width: 350px;
     height: 50px;
     font-size: 20px;
@@ -144,4 +146,5 @@ hr {
 :root {
     --orange: #D3BD8E;
     --black: black;
+    --gray: #9D9D9D;
 }

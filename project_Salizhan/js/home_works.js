@@ -79,11 +79,10 @@ resetButton.onclick = () => {
 }
 
 //CHARACTERS 
-// TODO:Реализовать плавный переход или бесконечный слайдер 
-
 //html elements
 const characters = document.querySelector(".characters-list");
 const characterCloseButton = document.querySelector(".characters-close-button");
+const characterSlider = document.querySelector(".character-slider");
 
 //audio
 const uiChooseAudio = document.querySelector("#uiChooseAudio");
@@ -110,7 +109,6 @@ const xhr = new XMLHttpRequest();
 xhr.open("GET", "../data/gwent_cards.json");
 xhr.setRequestHeader("Content-type", "application/json");
 xhr.send();
-
 xhr.onload = () => {
     const cards = JSON.parse(xhr.response);
     const gwentCards = cards.map((card) => {
@@ -164,4 +162,23 @@ characterCloseButton.onclick = () => {
     const characterCards = document.querySelectorAll(".character-card");
     audioPlay(uiSelectAudio);
     cardInfoClose(characterCards);
+}
+
+//Slider
+characterSlider.onclick = (event) => {
+    if (event.target.classList.contains("character-slider-button")) {
+        const cardWidth = characters.querySelector(".character-card").offsetWidth + 30;
+        
+        if (event.target.classList.contains("character-prev")) {
+            characters.scrollBy({
+                left: -cardWidth * 4,
+                behavior: "smooth"
+            });
+        } else if (event.target.classList.contains("character-next")) {
+            characters.scrollBy({
+                left: cardWidth * 4,
+                behavior: "smooth"
+            });
+        }
+    }
 }
