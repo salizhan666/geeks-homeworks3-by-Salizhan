@@ -58,12 +58,10 @@ const openModalScroll = (event) => {
 } 
 
 document.addEventListener("scroll", openModalScroll);
-setTimeout(openModal, 10000);
 
 modalSubscribe.onclick = checkGmail;
 modalOpenButton.onclick = openModal;
 modalCloseButton.onclick = closeModal;
-// modal.onclick = event => event.target === modal ? closeModal() : openModal();
 modal.onclick = (event) => {
     if (event.target === modal) closeModal();
 }
@@ -72,4 +70,5 @@ modalCheckbox.onclick = () => {
     modalCheckbox.classList.toggle("modal_active");
     checkboxAppereace();
 }
+
 

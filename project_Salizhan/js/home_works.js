@@ -104,15 +104,22 @@ const cardInfoOpen = (cards, userCardIndex) => {
     cards[userCardIndex].classList.add("character-active");
 }
 
+const requestUrl = async (url) => {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(`Ошибка: ${response.status} `);
+    }
+
+    return response.json();
+}
+
 //XMLHTTPRequest
-const xhr = new XMLHttpRequest();
-xhr.open("GET", "../data/gwent_cards.json");
-xhr.setRequestHeader("Content-type", "application/json");
-xhr.send();
-xhr.onload = () => {
-    const cards = JSON.parse(xhr.response);
-    const gwentCards = cards.map((card) => {
-        return `
+const renderGwentCard = async () => {
+    try {
+        const data = await requestUrl('../data/gwent_cards.json');
+        const gwentCards = data.map((card) => {
+            return `
             <div class="character-card">
                 <div class="character-photo">
                     <img src="${card.image}" alt="">
@@ -123,18 +130,24 @@ xhr.onload = () => {
                 </div>
             </div>
         `
-    });
-    characters.innerHTML = gwentCards.join("");
+        });
+        characters.innerHTML = gwentCards.join("");
+    } catch (error) {
+        console.error(error.message);
+    }
 }
 
-const gaunterRequest = new XMLHttpRequest()
-gaunterRequest.open("GET", "../data/gaunter_odimm.json");
-gaunterRequest.setRequestHeader("Content-type", "application/json");
-gaunterRequest.send();
-
-gaunterRequest.onload = () => {
-    console.log(JSON.parse(gaunterRequest.response));
+const gaunterRequest = async () => {
+    try {
+        const data = await requestUrl('../data/gaunter_odimm.json');
+        console.log(data);
+    } catch (error) {
+        console.error(error.message);
+    }
 }
+
+renderGwentCard();
+gaunterRequest();
 
 //Listeners
 characters.addEventListener("mouseover", (event) => {

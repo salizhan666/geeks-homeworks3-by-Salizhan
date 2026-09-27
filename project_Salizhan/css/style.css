@@ -31,6 +31,10 @@
 .header_background {
     width: 100%;
 }
+
+#btn-get {
+    text-transform: uppercase;
+}
 /* LOGOTYPE */
 
 .logotype img{
@@ -75,6 +79,26 @@
     position: absolute;
     top: 0;
 }
+
+/* NEWS */
+
+.news__item {
+    width: 300px;
+    color: white;
+}
+
+.news__item h3 {
+    font-size: 16px;
+    text-align: left;
+    letter-spacing: normal;
+}
+
+.news__image img {
+    display: block;
+    width: 100%
+}
+
+
 
 /* BUTTONS COLOR PICKER */
 

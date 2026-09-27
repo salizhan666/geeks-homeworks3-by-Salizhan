@@ -1,22 +1,5 @@
 let index = 0;
 
-// PHONE CHECKER
-// const userPhoneInput = document.querySelector("#phone_input");
-// const checkPhoneButton = document.querySelector("#phone_button");
-// const resultPhoneCheck = document.querySelector("#phone_result");
-
-// checkPhoneButton.onclick = () => {
-//     const regExp = /^\+996 [2579]\d{2} \d{2}-\d{2}-\d{2}$/;
-
-//     if (regExp.test(userPhoneInput.value)) {
-//         resultPhoneCheck.innerHTML = "OK";
-//         resultPhoneCheck.style.color = "green";
-//     } else {
-//         resultPhoneCheck.innerHTML = "ERROR";
-//         resultPhoneCheck.style.color = "red";
-//     }
-// }
-
 //INFO
 const infoButtons = document.querySelectorAll(".info__content .info__button");
 const infoContentDesc = document.querySelectorAll(".info__descption");
@@ -109,30 +92,44 @@ const btnNext = document.querySelector("#btn-next");
 const card = document.querySelector(".card");
 let cardId = 1;
 
-const getTodoData = (id = 0) => {
-    fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-            const { id, title, completed } = data;
-            const status = completed ? '&#9989;' : '&#10062;'
+const requestUrl = async (url) => {
+    const response = await fetch(url);
 
-            card.innerHTML = `
-                <p>${title}</p>
-                <span>${status}</span>
-                <span>${id}</span>
-            `
-        });
+    if (!response.ok) {
+        throw new Error(`Ошибка: ${response.status} `);
+    }
+
+    return response.json();
 }
 
-const getPostData = () => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-        })
+const getTodoData = async (cardId = 0) => {
+    try {
+        const data = await requestUrl(`https://jsonplaceholder.typicode.com/todos/${cardId}`);
+        const { title, completed } = data;
+        const status = completed ? '&#9989;' : '&#10062;'
+
+        card.innerHTML = `
+        <p>${title}</p>
+        <span>${status}</span>
+        <span>${cardId}</span>
+    `
+    } catch (error) {
+        console.error(error.message);
+        card.innerHTML = 'Ошибка сервера';
+        card.style.color = 'white';
+    }
 }
 
-getTodoData(cardId);
+const getPostData = async () => {
+    try {
+        const data = await requestUrl(`https://jsonplaceholder.typicode.com/posts`);
+        console.log(data)
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+getTodoData(cardId)
 getPostData();
 
 btnNext.onclick = () => {
@@ -151,4 +148,37 @@ btnPrev.onclick = () => {
         cardId--;
     }
     getTodoData(cardId);
+}
+
+//WEATHER
+const API = 'https://api.openweathermap.org/data/2.5/weather';
+const API_KEY = '291aa3950880603684e43c6cc36aed88';
+
+const searchInput = document.querySelector("#searchInput");
+const searchButton = document.querySelector("#search");
+const city = document.querySelector(".city");
+const temp = document.querySelector(".temp");
+
+const renderWeatherContent = (data) => {
+    city.innerHTML = data.name;
+    city.style.color = 'white';
+    temp.innerHTML = Math.round(data.main.temp) + '&#176;C';
+}
+
+const getWeather = async () => {
+    if (searchInput.value) {
+        const response = await fetch(`${API}?q=${searchInput.value}&units=metric&lang=ru&appid=${API_KEY}`);
+        const data = await response.json();
+        renderWeatherContent(data);
+        searchInput.value = '';
+    } else {
+        city.innerHTML = 'Введите город';
+        city.style.color = 'red';
+        temp.innerHTML = ''
+    }
+
+}
+
+searchButton.onclick = () => {
+    getWeather();
 }

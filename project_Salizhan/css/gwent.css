@@ -1,0 +1,51 @@
+.gwent {
+    padding: 100px 0;
+    background-image: url("../media/images/background/gwent-desk.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: repeat;
+    /* height: calc(100vh + 80px); */
+    width: 100%;
+}
+
+.gwent__cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gwent__image img {
+    display: block;
+    width: 200px;
+}
+
+.gwent__item {
+    color: white;
+    max-width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+.gwent__item:hover {
+    scale: 1.05;
+}
+
+.gwent__item h2 {
+    font-size: 20px;
+}
+
+.gwent__item p {
+    font-size: 14px;
+}
+
+.gwent__cards span {
+    font-family: "Noto Serif", serif;
+    margin: 200px 0;
+    font-size: 28px;
+    color: white;
+}
